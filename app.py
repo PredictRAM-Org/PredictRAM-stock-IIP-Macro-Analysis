@@ -44,10 +44,20 @@ if uploaded_stock_data is not None:
 
         # Ensure the lengths of input arrays are consistent
         if len(macro_selected_data_quarterly) == len(macro_target):
+            print("Lengths of arrays before split:")
+            print("macro_selected_data_quarterly:", len(macro_selected_data_quarterly))
+            print("macro_target:", len(macro_target))
+
             # Split data into training and testing sets
             macro_train_data, macro_test_data, macro_train_target, macro_test_target = train_test_split(
                 macro_selected_data_quarterly, macro_target, test_size=0.2, random_state=42
             )
+
+            print("Lengths of arrays after split:")
+            print("macro_train_data:", len(macro_train_data))
+            print("macro_test_data:", len(macro_test_data))
+            print("macro_train_target:", len(macro_train_target))
+            print("macro_test_target:", len(macro_test_target))
 
             # Linear Regression
             linear_model = LinearRegression()
